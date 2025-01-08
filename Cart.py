@@ -13,3 +13,9 @@ class Cart:
 
     def total_price(self):
         return self.tree.get_total_price(self.tree.root)
+
+    def search_item(self, key):
+        node = self.tree.search(self.tree.root, key)
+        if node:
+            return (node.key, node.price)
+        return None
