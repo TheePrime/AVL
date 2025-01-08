@@ -68,3 +68,14 @@ class AVLTree:
         z.height = 1 + max(self.get_height(z.left), self.get_height(z.right))
         y.height = 1 + max(self.get_height(y.left), self.get_height(y.right))
         return y
+
+    #total price in tree
+    def get_total_price(self, root):
+        if not root:
+            return 0
+        return root.price + self.get_total_price(root.left) + self.get_total_price(root.right)
+    #total items in tree
+    def get_total_items(self, root):
+        if not root:
+            return 0
+        return 1 + self.get_total_items(root.left) + self.get_total_items(root.right)
