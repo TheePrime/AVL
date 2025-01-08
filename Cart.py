@@ -4,6 +4,9 @@ class Cart:
     def __init__(self):
         self.tree = AVLTree()
 
+    def remove_item(self, key):
+        self.tree.root = self.tree.delete(self.tree.root, key)
+
     #Function to add items to cart
     def add_item(self, key, price):
         self.tree.root = self.tree.insert(self.tree.root, key, price)
