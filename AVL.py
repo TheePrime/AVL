@@ -35,3 +35,15 @@ class AVLTree:
             return self.left_rotate(root)
 
         return root
+    
+    #Get Height
+    #Get the height of the three from the root Node
+    def get_height(self, root):
+        if not root:
+            return 0
+        return root.height
+    #Gets the balance factor(Height of left subtree - Height of right subtree)
+    def get_balance(self, root):
+        if not root:
+            return 0
+        return self.get_height(root.left) - self.get_height(root.right)
