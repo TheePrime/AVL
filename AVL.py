@@ -35,7 +35,7 @@ class AVLTree:
             return self.left_rotate(root)
 
         return root
-    
+
     #Get Height
     #Get the height of the three from the root Node
     def get_height(self, root):
@@ -79,3 +79,16 @@ class AVLTree:
         if not root:
             return 0
         return 1 + self.get_total_items(root.left) + self.get_total_items(root.right)
+
+    def search(self, root, key):
+        if root is None or root.key == key:
+            return root
+        elif key < root.key:
+            return self.search(root.left, key)
+        else:
+            return self.search(root.right, key)
+
+    def get_min_value_node(self, root):
+        if root is None or root.left is None:
+            return root
+        return self.get_min_value_node(root.left)
